@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!slides/[0-9]*.qmd"
+
+website:
+  page-navigation: true
+  title: "Analysis Results Datasets"
+  description: "Introduction to Analysis Results Data + gtsummary"
+  favicon: "images/cards-cardx-gtsummary-hex.png"
+
+  repo-url: https://github.com/posit-conf-2024/pharmaverse
+  repo-actions: [edit, issue]
+
+  page-footer:
+    left: "This page is built with ❤️ and [Quarto](https://quarto.org/). Inspired by [@minecr.bsky.social](https://bsky.app/profile/minecr.bsky.social)."
+    background: "#AD99AE"
+
+  sidebar:
+    background: "#AD99AE"
+    logo: "images/cards-cardx-gtsummary-hex.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/ddsjoberg/ARD-introduction-ALZ
+        text: GitHub
+    style: docked
+    contents:
+     - href: index.qmd
+       text: Home
+     - href: license.qmd
+     - href: slides.qmd
+       text: Slides
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    toc: true
+    code-copy: true
+    code-overflow: scroll
+    mainfont: "Atkinson Hyperlegible"
+    highlight-style: a11y
+
+editor: source
+
