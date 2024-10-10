@@ -75,7 +75,7 @@
 
 ## {gtsummary} overview
 
-For our workshop, we will focus on the following summary types as well as [themes]{.emphasis} and  [print engines]{.emphasis}.
+We will focus on the following summary types as well as [themes]{.emphasis} and  [print engines]{.emphasis}.
 
 - `tbl_summary()`
 

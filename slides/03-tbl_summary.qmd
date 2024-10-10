@@ -185,7 +185,7 @@ tbl_summary(
 This syntax is also used in {cards}, {cardx}, and {gt}.
 <p align="center">
 
-<img src="https://raw.githubusercontent.com/ddsjoberg/gtsummary-weill-cornell-presentation/5887c81b58f4ed0c76f6ae458243e9c2a2fbbcd2/Images/Dan-SummaryTables-5.png" width="95%"/>
+<img src="images/Dan-SummaryTables-5.png" width="95%"/>
 
 </p>
 
@@ -334,6 +334,7 @@ tbl
 ```{r}
 #| label: 'column-names'
 #| output-location: "column"
+#| message: true
 show_header_names(tbl)
 ```
 
@@ -404,10 +405,10 @@ sm_trial |>
 
 ```{r}
 #| label: 'summary-view-ard'
+#| message: true
 tbl <- tbl_summary(trial, by = trt) |> add_p()
-class(tbl$cards)
-names(tbl$cards)
-tbl$cards[["add_p"]][["age"]]
+
+gather_ard(tbl)[["add_p"]][["age"]]
 ```
 
 :::
@@ -420,20 +421,6 @@ And many more!
 See the documentation at <http://www.danieldsjoberg.com/gtsummary/reference/index.html>
 
 And a detailed `tbl_summary()` vignette at <http://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html>
-
-## {gtsummary} Exercise 1
-
-1. Navigate to Posit Cloud script `04-gtsummary_exercise1.R`.
-
-2. Create the table outlined in the script.
-
-3. Add the "completed" sticky note to your laptop when complete.
-
-```{r}
-#| echo: false
-#| cache: false
-countdown(minutes = 10)
-```
 
 ## Cross-tabulation with tbl_cross()
 
