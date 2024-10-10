@@ -158,7 +158,7 @@
     "href": "slides/index.html#gtsummary-overview-1",
     "title": "Introduction to Analysis Results Datasets (ARDs)",
     "section": "{gtsummary} overview",
-    "text": "{gtsummary} overview\nFor our workshop, we will focus on the following summary types as well as themes and print engines.\n\ntbl_summary()\ntbl_cross()\ntbl_continuous()\ntbl_wide_summary()"
+    "text": "{gtsummary} overview\nWe will focus on the following summary types as well as themes and print engines.\n\ntbl_summary()\ntbl_cross()\ntbl_continuous()\ntbl_wide_summary()"
   },
   {
     "objectID": "slides/index.html#example-dataset",
@@ -277,7 +277,7 @@
     "href": "slides/index.html#column-names",
     "title": "Introduction to Analysis Results Datasets (ARDs)",
     "section": "Column names",
-    "text": "Column names\n\n\nshow_header_names(tbl)\n\n\nColumn Name   Header                 level*         N*          n*          p*             \nlabel         \"**Characteristic**\"                  200 &lt;int&gt;                              \nstat_1        \"**Group A**\"          Drug A &lt;chr&gt;   200 &lt;int&gt;    98 &lt;int&gt;   0.490 &lt;dbl&gt;    \nstat_2        \"**Group B**\"          Drug B &lt;chr&gt;   200 &lt;int&gt;   102 &lt;int&gt;   0.510 &lt;dbl&gt;    \n\n\n\n\nall_stat_cols() selects columns \"stat_1\" and \"stat_2\""
+    "text": "Column names\n\n\nshow_header_names(tbl)\n\n\nColumn Name   Header                 level*         N*          n*          p*             \nlabel         \"**Characteristic**\"                  200 &lt;int&gt;                              \nstat_1        \"**Group A**\"          Drug A &lt;chr&gt;   200 &lt;int&gt;    98 &lt;int&gt;   0.490 &lt;dbl&gt;    \nstat_2        \"**Group B**\"          Drug B &lt;chr&gt;   200 &lt;int&gt;   102 &lt;int&gt;   0.510 &lt;dbl&gt;    \n\n\n* These values may be dynamically placed into headers (and other locations).\nℹ Review the `modify_header()` (`?gtsummary::modify()`) help for examples.\n\n\n\n\nall_stat_cols() selects columns \"stat_1\" and \"stat_2\""
   },
   {
     "objectID": "slides/index.html#update-tbl_summary-with-add_-4",
@@ -298,7 +298,7 @@
     "href": "slides/index.html#where-are-the-ards",
     "title": "Introduction to Analysis Results Datasets (ARDs)",
     "section": "Where are the ARDs?",
-    "text": "Where are the ARDs?\n\n\n\nARDs are the backbone for all calculations in gtsummary\nEvery gtsummary table saves the ARDs from each calculation\nThey can be extracted individually, or combined.\n\n\n\ntbl &lt;- tbl_summary(trial, by = trt) |&gt; add_p()\nclass(tbl$cards)\n\n[1] \"list\"\n\nnames(tbl$cards)\n\n[1] \"tbl_summary\" \"add_p\"      \n\ntbl$cards[[\"add_p\"]][[\"age\"]]\n\n   group1 variable   context   stat_name stat_label      stat\n1     trt      age stats_wi…    estimate  Median o…        -1\n2     trt      age stats_wi…   statistic  X-square…      4323\n3     trt      age stats_wi…     p.value    p-value     0.718\n4     trt      age stats_wi…    conf.low  CI Lower…        -5\n5     trt      age stats_wi…   conf.high  CI Upper…         4\n6     trt      age stats_wi…      method     method Wilcoxon…\n7     trt      age stats_wi… alternative  alternat… two.sided\n8     trt      age stats_wi…          mu         mu         0\n9     trt      age stats_wi…      paired  Paired t…     FALSE\n10    trt      age stats_wi…       exact      exact          \n11    trt      age stats_wi…     correct    correct      TRUE\n12    trt      age stats_wi…    conf.int   conf.int      TRUE\n13    trt      age stats_wi…  conf.level  CI Confi…      0.95\n14    trt      age stats_wi…    tol.root   tol.root         0\n15    trt      age stats_wi… digits.rank  digits.r…       Inf"
+    "text": "Where are the ARDs?\n\n\n\nARDs are the backbone for all calculations in gtsummary\nEvery gtsummary table saves the ARDs from each calculation\nThey can be extracted individually, or combined.\n\n\n\ntbl &lt;- tbl_summary(trial, by = trt) |&gt; add_p()\n\ngather_ard(tbl)[[\"add_p\"]][[\"age\"]]\n\n{cards} data frame: 15 x 9\n\n\n   group1 variable   context   stat_name stat_label      stat\n1     trt      age stats_wi…    estimate  Median o…        -1\n2     trt      age stats_wi…   statistic  X-square…      4323\n3     trt      age stats_wi…     p.value    p-value     0.718\n4     trt      age stats_wi…    conf.low  CI Lower…        -5\n5     trt      age stats_wi…   conf.high  CI Upper…         4\n6     trt      age stats_wi…      method     method Wilcoxon…\n7     trt      age stats_wi… alternative  alternat… two.sided\n8     trt      age stats_wi…          mu         mu         0\n9     trt      age stats_wi…      paired  Paired t…     FALSE\n10    trt      age stats_wi…       exact      exact          \n11    trt      age stats_wi…     correct    correct      TRUE\n12    trt      age stats_wi…    conf.int   conf.int      TRUE\n13    trt      age stats_wi…  conf.level  CI Confi…      0.95\n14    trt      age stats_wi…    tol.root   tol.root         0\n15    trt      age stats_wi… digits.rank  digits.r…       Inf\n\n\nℹ 3 more variables: fmt_fn, warning, error"
   },
   {
     "objectID": "slides/index.html#add-on-functions-in-gtsummary-1",
@@ -306,13 +306,6 @@
     "title": "Introduction to Analysis Results Datasets (ARDs)",
     "section": "Add-on functions in {gtsummary}",
     "text": "Add-on functions in {gtsummary}\nAnd many more!\nSee the documentation at http://www.danieldsjoberg.com/gtsummary/reference/index.html\nAnd a detailed tbl_summary() vignette at http://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html"
-  },
-  {
-    "objectID": "slides/index.html#gtsummary-exercise-1",
-    "href": "slides/index.html#gtsummary-exercise-1",
-    "title": "Introduction to Analysis Results Datasets (ARDs)",
-    "section": "{gtsummary} Exercise 1",
-    "text": "{gtsummary} Exercise 1\n\nNavigate to Posit Cloud script 04-gtsummary_exercise1.R.\nCreate the table outlined in the script.\nAdd the “completed” sticky note to your laptop when complete.\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/index.html#cross-tabulation-with-tbl_cross",
@@ -439,13 +432,6 @@
     "title": "Introduction to Analysis Results Datasets (ARDs)",
     "section": "ARD-first Table Shells",
     "text": "ARD-first Table Shells\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nDrug A N = xx1\nDrug B N = xx1\n\n\n\n\nAge, years\n\n\n\n\n\n\n    Mean (SD)\nxx.x (xx.x)\nxx.x (xx.x)\n\n\n    Min - Max\nxx.x - xx.x\nxx.x - xx.x\n\n\nGrade\n\n\n\n\n\n\n    I\nxx.x (xx.x%)\nxx.x (xx.x%)\n\n\n    II\nxx.x (xx.x%)\nxx.x (xx.x%)\n\n\n    III\nxx.x (xx.x%)\nxx.x (xx.x%)\n\n\nTumor Response\nxx.x (xx.x%)\nxx.x (xx.x%)\n\n\n\n1 n (%)"
-  },
-  {
-    "objectID": "slides/index.html#gtsummary-exercise-2",
-    "href": "slides/index.html#gtsummary-exercise-2",
-    "title": "Introduction to Analysis Results Datasets (ARDs)",
-    "section": "{gtsummary} Exercise 2",
-    "text": "{gtsummary} Exercise 2\n\nNavigate to Posit Cloud script 05-gtsummary_exercise2.R.\nCreate the table outlined in the script.\nAdd the “completed” sticky note to your laptop when complete.\n\n\n\n\n−+\n10:00"
   },
   {
     "objectID": "slides/index.html#gtsummary-theme-basics",
