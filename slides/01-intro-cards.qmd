@@ -200,6 +200,7 @@ This function specializes in calculating **participant**-level rates.
 :::
 
 ```{r}
+#| message: true
 ard_hierarchical(
   data = ADAE |>
     dplyr::slice_tail(n = 1L, by = c(USUBJID, TRTA, AESOC, AEDECOD)),
@@ -219,6 +220,7 @@ This function specializes in calculating **event**-level frequencies.
 :::
 
 ```{r}
+#| message: true
 ard_hierarchical_count(
   data = ADAE,
   variables = c(AESOC, AEDECOD),
@@ -235,6 +237,7 @@ Can I get all the statistics for SOC and AE rates in a single call without needi
 :::
 
 ```{r}
+#| message: true
 ard_stack_hierarchical(
   data = ADAE,
   variables = c(AESOC, AEDECOD),
